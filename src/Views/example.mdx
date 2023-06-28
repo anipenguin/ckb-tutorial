@@ -18,7 +18,7 @@ Ready to pen a love note to the blockchain, or an everlasting secret message to 
 <br/>
 Well this tutorial will have you writing on the blockchain faster than a caffeine-fueled coder on a deadline!
 <br/>
-In this bite-sized tutorial, you'll learn how to tuck a nifty message - "Hello CKB!" - into a [cell](https://docs.nervos.org/docs/reference/cell/) on the CKB testnet. Imagine it as sending a message in a bottle, but the ocean is digital, and the bottle is a super secure, tamper-proof CKB cell!
+In this tutorial, you'll learn how to tuck a nifty message - "<span className="text-green-600">Hello CKB!</span>" - into a [cell](https://docs.nervos.org/docs/reference/cell/) on the CKB testnet. Imagine it as sending a message in a bottle, but the ocean is digital, and the bottle is a super secure, tamper-proof CKB cell!
 <br/>
 Once your words are encrypted and inscribed into the blockchain, we'll show you how to uncover them on the [CKB explorer](https://explorer.nervos.org/).
 
@@ -73,18 +73,18 @@ You can verify your message on the CKB Explorer:
 <Flowchart steps={["Visit the output **URL**.", 'Click on <span className="text-green-600">**Cell Info**</span> of <span className="text-green-600">**Output#0**</span> and go to <span className="text-green-600">**Data**</span>.', 'Copy the number string after <span className="text-green-600">**0x**</span>.',"Paste it into the **[CypherChef's magic tool](https://gchq.github.io/CyberChef/#recipe=From_Hex('None'))** to decode."]} />
 <br/>
 
-Boom! There's your message. Curious about the behind-the-scenes magic?
-
-<br/>
-
 <video src={UncoveringHelloCkb} controls>
     Your browser does not support the video tag.
 </video>
 
+<br/>
+
+Boom! There's your message. Curious about the behind-the-scenes magic?
+
 ---
 # Behind the Scene
 
-The [program](https://github.com/Flouse/ckb-tthw/blob/42bf1b5a3566e2d8adf6ef79aad8580de0d79281/js/index.ts#L125-L136) inscribes "Hello Common Knowledge Base!" into a cell on the CKB testnet in [3 steps](https://github.com/Flouse/ckb-tthw/blob/42bf1b5a3566e2d8adf6ef79aad8580de0d79281/js/index.ts#L125-L136):
+The [program](https://github.com/cryptape/ckb-tutorial/blob/main/js/index.ts) inscribes "Hello Common Knowledge Base!" into a cell on the CKB testnet in [3 steps](https://github.com/cryptape/ckb-tutorial/blob/2c5e4cfae3d7301b4c1d488446cf440c0436b629/js/index.ts#L146-L154):
 
 ```javascript
 // Step 1: this is the message that will be written on chain
@@ -100,7 +100,6 @@ let txSkeleton = await constructHelloWorldTx(onChainMemo);
 // Step 3: sign and send the transaction
 
 const txHash = await signAndSendTx(txSkeleton, testPrivKey);
-
 console.log(`Transaction ${txHash} sent.\n`);
 
 ```
@@ -113,13 +112,11 @@ Feeling adventurous?
 
 <img src={WhiteBoard} />
 
-You can access and edit the [code file](https://github.com/Flouse/ckb-tthw/blob/42bf1b5a3566e2d8adf6ef79aad8580de0d79281/js/index.ts#L125-L136) in your terminal using:
+You can access and edit the [code file](https://github.com/cryptape/ckb-tutorial/blob/2c5e4cfae3d7301b4c1d488446cf440c0436b629/js/index.ts#L146-L154) in your terminal using:
 
-[//]: # (<CodeBlock>)
-
-[//]: # (    vi index.ts)
-
-[//]: # (</CodeBlock>)
+```bash
+vi index.ts
+```
 
 Try changing the <span className="text-green-600">onChainMemo</span> string to a different message and run it again! Go ahead, make the blockchain your own personal diary, but remember - whatever happens on the blockchain, stays on the blockchain!
 
